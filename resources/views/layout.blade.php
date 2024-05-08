@@ -33,7 +33,6 @@
         </nav>
     </header>
     @yield('contenido')
-    <footer>Copyrigth @ {{date('Y')}}</footer>
 
 </body>
 

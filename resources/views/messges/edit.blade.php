@@ -1,5 +1,4 @@
-@extends('layout')
-@section('contenido')
+<x-app-layout>
     <h1>Editar mensaje de {{$message->nombre}}</h1>
 
     <form method="POST" action="{{ route('mensajes.update', $message->id) }}">
@@ -7,20 +6,24 @@
         {!! csrf_field() !!}
         <p><label for="nombre">
                 Nombre
-                <input type="text" name="nombre" value="{{ $message->nombre }}">
+                <input class="block w-64 h-12 border-none rounded-md bg-gray-300 mb-1 p-3 opacity-50" type="text" disabled name="nombre" value="{{ $message->nombre }}">
                 {!! $errors->first('nombre', '<span class=error>:message</span>') !!} {{old('nombre')}}
             </label></p>
         <p></p><label for="email">
             Email
-            <input type="text" name="email" value="{{ $message->email }}">
-            {!! $errors->first('email', '<span class=error>:message</span>') !!}}
+            <input class="block w-64 h-12 border-none rounded-md bg-gray-300 mb-1 p-3 opacity-50" type="text" disabled name="email" value="{{ $message->email }}">
+            {!! $errors->first('email', '<span class=error>:message</span>') !!}
         </label></p>
         <p></p><label for="mensaje">
             Mensaje
-            <textarea name="mensaje" >{{$message->mensaje}}</textarea>
-            {!! $errors->first('mensaje', '<span class=error>:message</span>') !!}}
+            <textarea class="block border-none rounded-md bg-gray-300 mb-1 p-2 w-64 h-36" name="mensaje" >{{$message->mensaje}}</textarea>
+            {!! $errors->first('mensaje', '<span class=error>:message</span>') !!}
         </label></p>
-        <input type="submit" value="enviar">
+        <input
+            type="submit"
+            value="enviar"
+            class="w-20 h-8 mt-5 bg-blue-500 rounded-2xl text-gray-200"
+        >
 
     </form>
-@stop
+</x-app-layout>

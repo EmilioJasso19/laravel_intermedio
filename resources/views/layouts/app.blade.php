@@ -16,6 +16,11 @@
 
         <!-- Styles -->
         @livewireStyles
+        <style>
+            .container {
+                padding: 5rem 10rem;
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -33,9 +38,11 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="container">
                 {{ $slot }}
             </main>
+
+            <footer class="mt-96 ml-28">Copyrigth @ {{date('Y')}}</footer>
         </div>
 
         @stack('modals')
